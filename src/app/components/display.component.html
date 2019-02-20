@@ -1,0 +1,28 @@
+<div (swipeleft)="back()">
+  <p>
+    You were trying to find {{ gifname | uppercase }} and this is what it looks like:
+  </p>
+
+  <div class="list">
+    <ul>
+      <li *ngFor="let g of gifImage | paginate: { itemsPerPage: 10, currentPage: p }">
+        <mat-card class="card">
+          <img src="{{g.imgURL}}" alt="">
+          <mat-card-content>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <mat-card-actions>
+              <button mat-button>Like</button>
+              <button mat-button>Share</button>
+            </mat-card-actions>
+
+          </mat-card-content>
+        </mat-card>
+      </li>
+    </ul>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+</div>

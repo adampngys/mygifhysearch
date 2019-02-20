@@ -1,0 +1,19 @@
+<form #form="ngForm" fxLayout="row column" fxLayoutGap="10px" (ngSubmit)="processForm(form)">
+
+  <div fxLayout="row column" fxLayoutGap="15px" fxLayoutAlign="start center">
+    <mat-form-field>
+      <input type="text" name="gifname" placeholder="GIF name" ngModel matInput required>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="accent" [disabled]="form.invalid">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
+</form>
+
+<h3>What others have found:</h3>
+
+<mat-list *ngFor="let g of gifs">
+  {{g | uppercase}}
+</mat-list>
